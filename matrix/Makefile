@@ -1,8 +1,9 @@
+
 # Name of the project
-PROJ_NAME=matriz
+PROJ_NAME=matrix
 
 # .c files
-C_SOURCE=$(wildcard ./source/*.cpp)
+C_SOURCE=$(wildcard ./Source/*.cpp)
 
 # Object files
 OBJ=$(subst .cpp,.o,$(subst source,objects,$(C_SOURCE)))
