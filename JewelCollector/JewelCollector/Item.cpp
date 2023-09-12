@@ -1,15 +1,15 @@
 #include "Item.h"
 
-Item::Item(std::string tipo, int valor) : tipo(tipo), valor(valor) {}
+Item::Item(std::string type, int value) : type(type), value(value) {}
 
-std::string Item::getTipo() const {
-    return tipo;
+std::string Item::getType() const {
+    return type;
 }
 
-int Item::getValor() const {
-    return valor;
+int Item::getValue() const {
+    return value;
 }
 
-void Item::setValor(int novoValor) {
-    valor = novoValor;
+void Item::setValue(int newValue) {
+    value = newValue;
 }

@@ -3,7 +3,7 @@
 int Treasure::getValue() const {
     int total = 0;
     for (const auto& item : items) {
-        total += item->getValor();
+        total += item->getValue();
     }
     return total;
 }

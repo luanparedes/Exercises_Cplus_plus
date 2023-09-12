@@ -17,5 +17,5 @@ private:
     int height;
     std::vector<std::vector<char>> map;
     Treasure treasure;
-    std::vector<Item*> treasureItems; // Armazena as joias e comidas presentes no baú
+    std::vector<Item*> treasItems; 
 };

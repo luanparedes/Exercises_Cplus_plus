@@ -3,14 +3,14 @@
 
 class Item {
 public:
-    Item(std::string tipo, int valor);
+    Item(std::string type, int value);
 
-    std::string getTipo() const;
-    int getValor() const;
-    void setValor(int novoValor);
+    std::string getType() const;
+    int getValue() const;
+    void setValue(int newValue);
 
 private:
-    std::string tipo;
-    int valor;
+    std::string type;
+    int value;
 };
 

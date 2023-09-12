@@ -1,3 +1,3 @@
 #include "Jewel.h"
 
-Jewel::Jewel(int valor) : Item("jewel", valor) {}
+Jewel::Jewel(int value) : Item("jewel", value) {}

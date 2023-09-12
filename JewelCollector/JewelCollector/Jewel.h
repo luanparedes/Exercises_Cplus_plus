@@ -3,6 +3,6 @@
 
 class Jewel : public Item {
 public:
-    Jewel(int valor);
+    Jewel(int value);
 };
 

@@ -1,3 +1,3 @@
 #include "Food.h"
 
-Food::Food(int valor) : Item("food", valor) {}
+Food::Food(int value) : Item("food", value) {}
