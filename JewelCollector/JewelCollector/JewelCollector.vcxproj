@@ -133,6 +133,7 @@
     <ClCompile Include="Jewel.cpp" />
     <ClCompile Include="JewelCollector.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Treasure.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +141,11 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Jewel.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Robot.h" />
     <ClInclude Include="Treasure.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="JewelCollector.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

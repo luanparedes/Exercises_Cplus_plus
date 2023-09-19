@@ -2,6 +2,8 @@
 
 Item::Item(std::string type, int value) : type(type), value(value) {}
 
+Item::Item(std::string type) : type(type){}
+
 std::string Item::getType() const {
     return type;
 }

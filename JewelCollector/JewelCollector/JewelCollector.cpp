@@ -11,6 +11,7 @@ enum MenuOptions {
     InvalidOption,
     PrintOption,
     ModifyOption,
+    RobotOption,
     ExitOption,
     JewelOption,
     FoodOption
@@ -30,7 +31,7 @@ int main()
     string optionTyped;
 
     while (!isQuit) {
-        cout << "Enter 'exit' to quit, 'print' for show the map or 'modify' to modify it: ";
+        cout << "Enter 'exit' to quit, 'print' for show the map, 'modify' to modify it or 'robot' for robot actions: ";
         cin >> optionTyped;
 
         switch (resolveOption(optionTyped))
@@ -41,6 +42,8 @@ int main()
             case ModifyOption:
                 printModifyMenu(&map);
                 break;
+            case RobotOption:
+                robotActions();
             case InvalidOption:
                 cout << "Invalid value. Enter a correct type 'jewel' or 'food'." << endl;
                 break;
@@ -67,18 +70,36 @@ void printModifyMenu(Map* map) {
     cout << "Enter the value of item: ";
     cin >> itemValue;
 
-    switch (resolveOption(optionTyped)) {
-    case JewelOption:
-        map->remove(x, y);
-        map->add(x, y, new Jewel(itemValue));
-        break;
-    case FoodOption:
-        map->remove(x, y);
-        map->add(x, y, new Food(itemValue));
-        break;
+    switch (resolveOption(optionTyped)) 
+    {
+        case JewelOption:
+            map->remove(x, y);
+            map->add(x, y, new Jewel(itemValue));
+            break;
+        case FoodOption:
+            map->remove(x, y);
+            map->add(x, y, new Food(itemValue));
+            break;
+        default:
+            cout << "Invalid value. Enter a correct type 'jewel' or 'food'." << endl;
+            break;
+    }
+}
+
+void robotActions() {
+    char selectedOption;
+
+    cout << "W - UP\nS - DOWN\nA - LEFT\nD - RIGHT\nG - Collect/use item";
+    cin >> selectedOption;
+
+    switch (selectedOption) {
+    case 'W':
+    case 'S':
+    case 'A':
+    case 'D':
+    case 'G':
     default:
-        cout << "Invalid value. Enter a correct type 'jewel' or 'food'." << endl;
-        break;
+        return;
     }
 }
 
@@ -87,6 +108,7 @@ MenuOptions resolveOption(std::string input) {
     if (input == "exit") return ExitOption;
     if (input == "print") return PrintOption;
     if (input == "modify") return ModifyOption;
+    if (input == "robot") return RobotOption;
     if (input == "jewel") return JewelOption;
     if (input == "food") return FoodOption;
 

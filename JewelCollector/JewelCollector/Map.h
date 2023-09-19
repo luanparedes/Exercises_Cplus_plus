@@ -7,6 +7,7 @@
 class Map {
 public:
     Map(int width, int height);
+    Map();
 
     void add(int x, int y, Item* item);
     void remove(int x, int y);

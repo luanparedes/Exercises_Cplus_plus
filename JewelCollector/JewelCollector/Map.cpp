@@ -1,6 +1,8 @@
 #include "Map.h"
 #include "Item.h"
 
+Map::Map() {}
+
 Map::Map(int width, int height) : width(width), height(height), treasure(Treasure()) {
     for (int y = 0; y < height; y++) {
         std::vector<char> row;
