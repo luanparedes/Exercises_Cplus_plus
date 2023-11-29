@@ -2,21 +2,32 @@
 #include <atomic>
 #include <thread>
 #include <vector>
+#include <random>
 
-std::atomic<unsigned> counter;
+std::atomic<unsigned> number;
 
-void PrintThread();
+void PrintThread(int number);
+void PrintFinalNumber();
 
 int main()
 {
-    counter.store(0);
+  	std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution(1, 5000);
+
+    number.store(0);
 
     std::vector<std::thread> listThreads;
 
     for(int i = 0; i < 100; ++i){
         listThreads.emplace_back([&]() {
             std::this_thread::sleep_for(std::chrono::seconds(3));
-            counter.fetch_add(1);
+
+            int randomNumber = distribution(generator);
+
+            if(randomNumber > number)
+                number = randomNumber;
+            
+            PrintThread(randomNumber);
         });
     }
 
@@ -25,10 +36,15 @@ int main()
         t.join();
     }
 
-    PrintThread();
+    PrintFinalNumber();
 }
 
-void PrintThread()
+void PrintThread(int value)
 {
-    std::cout << "Threads: " << std::this_thread::get_id() << "  |  Counter: " << counter << std::endl;
+    std::cout << "Thread: " << std::this_thread::get_id() << "  |  Value: " << value << std::endl;
+}
+
+void PrintFinalNumber()
+{
+    std::cout << "\n\nVariavel atomica: " << number << std::endl;
 }
